@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewebire - MANIFEST LIKE YOU MEAN IT</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f7f2;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .gold-text {
+            color: #b8860b;
+        }
+        .gold-bg {
+            background-color: #b8860b;
+        }
+        .cream-bg {
+            background-color: #f8f5e6;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 600px;
+            position: relative;
+        }
+        .timer-box {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f5e6;
+            border-radius: 8px;
+            border: 1px solid #b8860b;
+            margin: 0 10px;
+        }
+        .timer-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #b8860b;
+            line-height: 1;
+        }
+        .timer-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .cta-button {
+            background-color: #b8860b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .cta-button:hover {
+            background-color: #986e08;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+        }
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: #b8860b;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #b8860b;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #b8860b;
+        }
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+            color: #b8860b;
+        }
+        .feature-list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        .feature-list-icon {
+            color: #b8860b;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+        }
+        .feature-list-content {
+            flex-grow: 1;
+        }
+        .feature-list-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .feature-list-description {
+            color: #666;
+        }
+        .ebook-cover {
+            max-width: 100%;
+            border: 5px solid #b8860b;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .nav-link {
+            color: #b8860b;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #986e08;
+        }
+        .social-icon {
+            color: #b8860b;
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #986e08;
+            transform: translateY(-2px);
+        }
+        .limited-badge {
+            background-color: rgba(184, 134, 11, 0.1);
+            color: #b8860b;
+            border: 1px solid #b8860b;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .limited-badge:before, .limited-badge:after {
+            content: "✦";
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="py-4 bg-white shadow-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gold-text">Ewebire</a>
+            <nav class="hidden md:flex">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#join" class="nav-link">Join Waitlist</a>
+            </nav>
+            <div class="hidden md:flex items-center">
+                <a href="#https://www.youtube.com/@EWEBIRE" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#https://www.facebook.com/share/163SnFZqed/" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#https://x.com/ewebire" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#https://www.instagram.com/ewebire?igsh=bmY1a25rbDB2ZXpl" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#https://www.tiktok.com/@ewebire.official?_t=ZS-8wQGxgPRIZM&_r=1" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section py-20">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold gold-text mb-4">MANIFEST LIKE YOU MEAN IT</h1>
+                    <p class="text-xl mb-6">The no-fluff guide to turning thoughts into things.</p>
+                    
+                    <div class="limited-badge">LIMITED EDITION - ONLY 555 COPIES AVAILABLE</div>
+                    
+                    <div class="flex mb-8">
+                        <div class="timer-box">
+                            <span class="timer-number">3</span>
+                            <span class="timer-label">DAYS</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-number">20</span>
+                            <span class="timer-label">HOURS</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-number">00</span>
+                            <span class="timer-label">MINUTES</span>
+                        </div>
+                        <div class="timer-box">
+                            <span class="timer-number">00</span>
+                            <span class="timer-label">SECONDS</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://forms.gle/YQUGUmAMQSidhpS96" class="cta-button">GRAB YOUR SPOT</a>
+                </div>
+                <div class="md:w-1/2 text-center">
+                    <img src="https://page1.genspark.site/v1/base64_upload/0927a3f49ea96fbe04df670043bf8441" alt="MANIFEST LIKE YOU MEAN IT ebook cover" class="ebook-cover inline-block">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="transform" class="py-20 bg-white">
+        <div class="container mx-auto">
+            <h2 class="section-title">TRANSFORM YOUR MANIFESTATION PRACTICE</h2>
+            <p class="text-center text-lg mb-16">Discover proven techniques that make manifestation simple, practical, and effective.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 gold-text">PRACTICAL TECHNIQUES</h3>
+                    <p>No-fluff, actionable methods that produce real results in your manifestation journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 gold-text">ACCELERATED RESULTS</h3>
+                    <p>Learn how to speed up your manifestations through proven psychological principles.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 gold-text">MINDSET MASTERY</h3>
+                    <p>Transform limiting beliefs into powerful catalysts for creating the life you desire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 cream-bg">
+        <div class="container mx-auto">
+            <h2 class="section-title">ABOUT THIS EBOOK</h2>
+            
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg mb-6 italic">"MANIFEST LIKE YOU MEAN IT" is the definitive guide for those who are tired of vague manifestation advice and ready for concrete, actionable steps.</p>
+                
+                <p class="text-lg">This premium resource cuts through the noise with practical techniques that transform your thoughts into tangible reality, presented in a straightforward, no-nonsense approach.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto">
+            <h2 class="section-title">WHAT'S INSIDE</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                <div class="feature-list-item">
+                    <div class="feature-list-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div class="feature-list-content">
+                        <h4 class="feature-list-title">Step-by-step manifestation frameworks</h4>
+                        <p class="feature-list-description">Clear, actionable processes you can implement immediately</p>
+                    </div>
+                </div>
+                
+                <div class="feature-list-item">
+                    <div class="feature-list-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div class="feature-list-content">
+                        <h4 class="feature-list-title">Mind reprogramming techniques</h4>
+                        <p class="feature-list-description">Powerful methods to rewire your subconscious for success</p>
+                    </div>
+                </div>
+                
+                <div class="feature-list-item">
+                    <div class="feature-list-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div class="feature-list-content">
+                        <h4 class="feature-list-title">Abundance activation exercises</h4>
+                        <p class="feature-list-description">Practical daily routines to shift your energy toward prosperity</p>
+                    </div>
+                </div>
+                
+                <div class="feature-list-item">
+                    <div class="feature-list-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div class="feature-list-content">
+                        <h4 class="feature-list-title">Wealth consciousness blueprints</h4>
+                        <p class="feature-list-description">Detailed plans to transform your relationship with money</p>
+                    </div>
+                </div>
+                
+                <div class="feature-list-item">
+                    <div class="feature-list-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div class="feature-list-content">
+                        <h4 class="feature-list-title">Reality shifting methodologies</h4>
+                        <p class="feature-list-description">Advanced techniques to align your reality with your desires</p>
+                    </div>
+                </div>
+                
+                <div class="feature-list-item">
+                    <div class="feature-list-icon">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div class="feature-list-content">
+                        <h4 class="feature-list-title">Manifestation troubleshooting guide</h4>
+                        <p class="feature-list-description">Solutions to common obstacles in your manifestation journey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 cream-bg">
+        <div class="container mx-auto">
+            <h2 class="section-title">WHAT PEOPLE ARE SAYING</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"This guide transformed my manifestation practice from wishful thinking to tangible results. I've manifested opportunities I never thought possible."</p>
+                    <p class="testimonial-author">- Sarah T.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Finally, a manifestation guide that cuts through the fluff and delivers practical techniques. I started seeing results within the first week."</p>
+                    <p class="testimonial-author">- Michael R.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The step-by-step frameworks make manifestation so approachable. I've recommended this to everyone in my circle."</p>
+                    <p class="testimonial-author">- Jennifer L.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a skeptic, I was amazed by how well these techniques worked. The author presents everything in such a logical, straightforward way."</p>
+                    <p class="testimonial-author">- David K.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"This ebook helped me move past my blocks and finally start manifesting the abundance I've been seeking for years."</p>
+                    <p class="testimonial-author">- Alicia M.</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Worth every penny and more. The wealth consciousness blueprints alone have completely transformed my financial situation."</p>
+                    <p class="testimonial-author">- Robert J.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="py-20 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title">JOIN THE WAITLIST</h2>
+            <p class="text-lg mb-6">Be the first to know when "MANIFEST LIKE YOU MEAN IT" launches and receive exclusive bonuses only available to waitlist members.</p>
+            
+            <div class="limited-badge">LIMITED EDITION - ONLY 555 COPIES AVAILABLE</div>
+            
+            <a href="https://forms.gle/YQUGUmAMQSidhpS96" class="cta-button">GRAB YOUR SPOT</a>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <p class="text-sm text-gray-600">&copy; 2025 Ewebire. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+                  </html>
+  
